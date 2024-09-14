@@ -1,0 +1,29 @@
+body {
+  font-size: 12px; /* Уменьшает размер шрифта */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%; /* Делает контейнер на всю ширину экрана */
+  max-width: 1000px; /* Ограничение по максимальной ширине */
+}
+
+p, label, select, input {
+  margin: 2px 0; /* Уменьшает отступы между элементами */
+  padding: 2px; /* Уменьшает внутренние отступы */
+  font-size: 12px; /* Уменьшает шрифт для всех элементов */
+  line-height: 1.2; /* Снижает высоту строки */
+}
+
+input.small-input, select.small-select {
+  width: auto; /* Делает ширину элементов автоподстраиваемой */
+  padding: 2px; /* Уменьшает внутренние отступы */
+}
+
+form.compact-form input[type="text"], form.compact-form select {
+  width: 100px; /* Устанавливает фиксированную ширину для текстовых полей и селектов */
+  padding: 2px; /* Уменьшает внутренние отступы */
+}
+.green-text {
+  color: rgb(0, 219, 0);
+}

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Справка, осмотр в приемном отделении</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container show">
+        <h3>Министерство здравоохранения и социального развития Российской Федерации</h3>
+        <h3>Государственное автономное учреждение здравоохранения "Детская городская клиническая больница №9 город Екатеринбург" 660152</h3>
+        <p>адрес: 620050, РОССИЯ, СВЕРДЛОВСКАЯ ОБЛ, г.ЕКАТЕРИНБУРГ, РЕШЕТСКАЯ УЛ, т-н 8-343-3230598. ОГРН 1026602971592</p>
+
+        <h3>Справка, осмотр в приемном отделении</h3>
+
+        <p><strong>Фамилия, имя, отчество (при наличии):</strong> <span class="green-text"> @#@ФамилияИмяОтчествоПациента </span></p>
+        <p><strong>Дата рождения:</strong> <span class="green-text"> @#@ДРПациента </span></p>
+        <p><strong>Возраст:</strong> 
+            <select id="age">
+                <option value="1">1 год</option>
+                <option value="2">2 года</option>
+                <option value="3">3 года</option>
+                <option value="4">4 года</option>
+                <option value="5">5 лет</option>
+                <option value="6">6 лет</option>
+                <option value="7">7 лет</option>
+                <option value="8">8 лет</option>
+                <option value="9">9 лет</option>
+                <option value="10">10 лет</option>
+                <option value="11">11 лет</option>
+                <option value="12">12 лет</option>
+                <option value="13">13 лет</option>
+                <option value="14">14 лет</option>
+                <option value="15">15 лет</option>
+                <option value="16">16 лет</option>
+                <option value="17">17 лет</option>
+                <option value="18">18 лет</option>
+            </select>
+        </p>
+        <p><strong>Пол:</strong> <span class="green-text"> @#@ПолПациентаМужЖен </span></p>
+        <p><strong>Регистрация по месту жительства:</strong> <span class="green-text"> @#@АдресРегистрацииПациента </span></p>
+        <p><strong>Регистрация по месту пребывания:</strong> <span class="green-text"> @#@АдресПроживанияПациента </span></p>
+        <p><strong>Дата и время обращения:</strong> <span class="green-text"> @#@ДатаПоступленияПрием  @#@ВремяПоступленияПрием </span></p>
+        <p><strong>Время формирования документа:</strong> <span class="green-text"> @#@ТекущееВремя </span></p>
+
+        <!-- Жалобы -->
+        <p><strong>Жалобы:</strong></p>
+        <form id="complaintsForm" class="compact-form">
+            <label><input type="checkbox" id="fever"> Подъем температуры до <input type="text" id="feverValue" class="small-input" placeholder="значение">°C</label><br>
+            
+            <label><input type="checkbox" id="headache"> Головная боль (3 балла)</label><br>
+            <label><input type="checkbox" id="consciousness"> Потеря сознания</label><br>
+            <label><input type="checkbox" id="nausea"> Тошнота</label><br>
+            
+            <label><input type="checkbox" id="vomiting"> Многократная рвота</label><br>
+            
+            <label><input type="checkbox" id="vomitingTimes"> Рвота до <input type="text" id="vomitingTimesValue" class="small-input" placeholder="раз"> раз</label><br>
+            
+            <label><input type="checkbox" id="diarrhea"> Жидкий стул до <input type="text" id="diarrheaValue" class="small-input" placeholder="раз"> раз</label><br>
+            
+            <label><input type="checkbox" id="urineRetention"> Задержка мочи до <input type="text" id="urineRetentionValue" class="small-input" placeholder="часов"> часов</label><br>
+            
+            <label><input type="checkbox" id="stoolRetention"> Задержка стула до <input type="text" id="stoolRetentionValue" class="small-input" placeholder="суток"> суток</label><br>
+            
+            <label><input type="checkbox" id="abdominalPain"> Периодические боли в животе (3 балла)</label><br>
+            
+            <label><input type="checkbox" id="painLocation"> Боли (3 балла) в <input type="text" id="painLocationValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="urinationPain"> Боли (3 балла) при мочеиспускании</label><br>
+            
+            <label><input type="checkbox" id="skinRedness"> Гиперемия кожи <input type="text" id="skinRednessValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="prepuceSwelling"> Отек, гиперемия крайней плоти</label><br>
+            
+            <label><input type="checkbox" id="scrotumSwelling"> Отек, гиперемия <select id="scrotumSide" class="small-select">
+                <option value="правой">правой</option>
+                <option value="левой">левой</option>
+            </select> половины мошонки</label><br>
+            
+            <label><input type="checkbox" id="fingerPain"> Боль (3 балла) в области <select id="fingerArea" class="small-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select> пальца <select id="fingerLocation" class="small-select">
+                <option value="правой стопы">правой стопы</option>
+                <option value="левой стопы">левой стопы</option>
+                <option value="правой кисти">правой кисти</option>
+                <option value="левой кисти">левой кисти</option>
+            </select></label><br>
+            
+            <label><input type="checkbox" id="swellingPain"> Отек, гиперемия, боль (3 балла) в <input type="text" id="swellingPainValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="purulentDischarge"> Гнойное отделяемое <input type="text" id="purulentDischargeValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="woundType"> <select id="woundType" class="small-select">
+                <option value="резаную">резаную</option>
+                <option value="колотую">колотую</option>
+                <option value="ушибленную">ушибленную</option>
+                <option value="размозжённую">размозжённую</option>
+                <option value="рваную">рваную</option>
+                <option value="рубленную">рубленную</option>
+                <option value="укушенную">укушенную</option>
+                <option value="огнестрельную">огнестрельную</option>
+            </select> рану в <input type="text" id="woundLocation" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="limp"> Хромота на <select id="limpSide" class="small-select">
+                <option value="правую">правую</option>
+                <option value="левую">левую</option>
+            </select> ногу</label><br>
+            
+            <label><input type="checkbox" id="foreignBody"> Со слов родителей проглотил инородное тело <input type="text" id="foreignBodyValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="cough"> Кашель</label><br>
+            
+            <label><input type="checkbox" id="dyspnea"> Одышка</label><br>
+            
+            <label><input type="checkbox" id="heartburn"> Изжога</label><br>
+            
+            <label><input type="checkbox" id="allergicReaction"> Аллергическая реакция в <input type="text" id="allergicReactionValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="itching"> Зуд в <input type="text" id="itchingValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="rash"> Сыпь по типу <select id="rashType" class="small-select">
+                <option value="пятен">пятен</option>
+                <option value="булл (пузырей)">булл (пузырей)</option>
+                <option value="папул (узелков)">папул (узелков)</option>
+                <option value="гнойничков (пустул)">гнойничков (пустул)</option>
+                <option value="волдырей">волдырей</option>
+                <option value="бляшек">бляшек</option>
+            </select> в <input type="text" id="rashLocation" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="growth"> Образование в <input type="text" id="growthValue" class="small-input" placeholder="локация"></label><br>
+            
+            <label><input type="checkbox" id="hernia"> Грыжевое выпячивание в <select id="herniaSide" class="small-select">
+                <option value="правой">правой</option>
+                <option value="левой">левой</option>
+            </select> паховой области</label><br>
+        </form>
+   
+
+        <!-- Анамнез заболевания -->
+        <p><strong>Анамнез заболевания:</strong></p>
+        <p>Дата начала жалоб: <input type="date" id="complaintsStartDate"></p>
+        <p>Время начала заболевания: <input type="time" id="complaintsStartTime"></p>
+        <p>Появились вышеперечисленные жалобы. Самостоятельно 
+            <select id="selfTreatmentStatus">
+                <option value="не лечились">не лечились</option>
+                <option value="принимали">принимали</option>
+            </select>
+            <input type="text" id="treatmentDetails" placeholder="описание лечения">
+            <select id="treatmentOutcome">
+                <option value=""> </option>
+                <option value="с положительной динамикой">с положительной динамикой</option>
+                <option value="без изменений">без изменений</option>
+            </select>
+        </p>
+
+        <!-- Анамнез жизни -->
+        <p><strong>Анамнез жизни:</strong></p>
+        <p>
+            <span>Диспансерный учет:</span>
+            <select id="dispensaryStatus">
+                <option value="не состоит">не состоит</option>
+                <option value="состоит">состоит</option>
+            </select> 
+            <input type="text" id="dispensaryDetails" placeholder="дополнительные данные">
+        </p>
+        <p>
+            <span>Вакцинация:</span> 
+            <select id="vaccinationStatus">
+                <option value="со слов по возрасту">со слов по возрасту</option>
+                <option value="мед.отвод">мед.отвод</option>
+                <option value="отказ родителей">отказ родителей</option>
+            </select> 
+            <input type="text" id="vaccinationDetails" placeholder="дополнительные данные">
+        </p>
+        <p>
+            <span>Аллергоанамнез:</span> 
+            <select id="allergyStatus">
+                <option value="аллергические реакции отрицает">аллергические реакции отрицает</option>
+                <option value="аллергическая реакция на">аллергическая реакция на</option>
+            </select> 
+            <input type="text" id="allergyDetails" placeholder="дополнительные данные">
+        </p>
+        <p>
+            <span>Травмы, операции:</span> 
+            <select id="traumaStatus">
+                <option value="отрицают">отрицают</option>
+                <option value="были">были</option>
+            </select> 
+            <input type="text" id="traumaDetails" placeholder="описание">
+            в <input type="number" id="traumaYear" placeholder="год">
+        </p>
+        <p>
+            <span>Гемотрансфузии:</span> 
+            <select id="transfusionStatus">
+                <option value="отрицают">отрицают</option>
+                <option value="были">были</option>
+            </select> 
+            <input type="text" id="transfusionDetails" placeholder="описание">
+            в <input type="number" id="transfusionYear" placeholder="год">
+        </p>
+
+        <!-- Объективный статус -->
+        <p><strong>Объективный статус:</strong></p>
+        <p>
+            Т: <input type="text" id="tempValue" value="36,6" class="small-input">°C 
+            ЧСС: <span id="pulseValue">-</span> уд. в мин. 
+            ЧДД: <span id="respValue">-</span> в мин. 
+            АД: <span id="bpValue">-</span> мм рт ст
+        </p>
+        <p>Состояние: 
+            <select id="condition">
+                <option value="удовлетворительное">удовлетворительное</option>
+                <option value="средней степени тяжести">средней степени тяжести</option>
+                <option value="тяжелое">тяжелое</option>
+            </select>
+        </p>
+        <p>Сознание: 
+            <select id="consciousness">
+                <option value="ясное">ясное</option>
+                <option value="оглушение">оглушение</option>
+                <option value="сопор">сопор</option>
+            </select>. Положение: 
+            <select id="position">
+                <option value="активное">активное</option>
+                <option value="вынужденное">вынужденное</option>
+            </select>
+        </p>
+        <p>Кожа и видимые слизистые: 
+            <select id="skinStatus1">
+                <option value="чистые">чистые</option>
+                <option value="сыпь">сыпь</option>
+            </select> 
+            <input type="text" id="skinDetails1" placeholder="детали">, 
+            <select id="skinStatus2">
+                <option value="физиологической окраски">физиологической окраски</option>
+                <option value="цианотичные">цианотичные</option>
+            </select>
+        </p>
+        <p>Дыхание: 
+            <select id="breathingType">
+                <option value="везикулярное">везикулярное</option>
+                <option value="жесткое">жесткое</option>
+                <option value="пуэрильное">пуэрильное</option>
+                <option value="инспираторная одышка">инспираторная одышка</option>
+                <option value="экспираторная одышка">экспираторная одышка</option>
+                <option value="смешанная">смешанная</option>
+            </select>, 
+            <select id="breathingConduct">
+                <option value="проводится во всех отделах легких">проводится во всех отделах легких</option>
+                <option value="ослаблено">ослаблено</option>
+            </select>
+            <input type="text" id="breathingDetails" placeholder="детали">,
+            <select id="wheezing">
+                <option value="хрипов нет">хрипов нет</option>
+                <option value="сухие хрипы">сухие хрипы</option>
+                <option value="влажные">влажные</option>
+            </select>
+        </p>
+        <p>Сердечные тоны: ясные, ритмичные. Пульс на лучевой артерии хорошего наполнения и напряжения.</p>
+        <p>Живот: 
+            <select id="abdomenStatus1">
+                <option value="не вздут">не вздут</option>
+                <option value="вздут">вздут</option>
+            </select>, мягкий, 
+            <select id="abdomenStatus2">
+                <option value="доступен глубокой пальпации во всех отделах">доступен глубокой пальпации во всех отделах</option>
+                <option value="глубокая пальпация затруднена">глубокая пальпация затруднена</option>
+            </select>, 
+            <select id="abdomenStatus3">
+                <option value="безболезненный">безболезненный</option>
+                <option value="умеренно болезненный">умеренно болезненный</option>
+            </select>
+            <p>Симптомы раздражения брюшины отрицательные.</p>
+            <input type="text" id="abdomenDetails" placeholder="детали">
+        </p>
+        <p>Печень по краю реберной дуги, при пальпации безболезненный. Селезенка не пальпируется.</p>
+        <p>Стул: 
+            <input type="text" id="stoolStatus" value="оформленный, ежедневный самостоятельный">
+            Мочеиспускание: 
+            <input type="text" id="urinationStatus" value="не нарушено">
+        </p>
+        <p>
+            <select id="rectalExam">
+                <option value="пусто">пусто</option>
+                <option value="Per rectum">Per rectum</option>
+            </select>: 
+            <select id="rectalDetails">
+                <option value="пусто">пусто</option>
+                <option value="без особенностей">без особенностей</option>
+                <option value="в ампуле прямой кишки плотные каловые массы">в ампуле прямой кишки плотные каловые массы</option>
+            </select>
+        </p>
+<!-- Местный статус -->
+<p><strong>Местный статус:</strong></p>
+<p>
+    <select id="localStatus1" class="small-select">
+        <option value="пусто">пусто</option>
+        <option value="Половые органы сформированы по женскому типу, правильно">Половые органы сформированы по женскому типу, правильно</option>
+        <option value="Половые органы сформированы по мужскому типу правильно, яички в мошонке с обеих сторон">Половые органы сформированы по мужскому типу правильно, яички в мошонке с обеих сторон</option>
+        <option value="Ось правой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области правого тазобедренного сустава нет">Ось правой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области правого тазобедренного сустава нет. Активные и пассивные движения в полном объеме, умеренно безболезненны. Пальпация мягких тканей в области сустава безболезненна, инфильтрации, местной гипертермии нет. Перкуссия в области сустава безболезненна</option>
+        <option value="Ось левой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области левого тазобедренного сустава нет">Ось левой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области левого тазобедренного сустава нет. Активные и пассивные движения в полном объеме, умеренно безболезненны. Пальпация мягких тканей в области сустава безболезненна, инфильтрации, местной гипертермии нет. Перкуссия в области сустава безболезненна</option>
+        <option value="Ось правой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области правого коленного сустава нет">Ось правой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области правого коленного сустава нет. Активные и пассивные движения в полном объеме, умеренно безболезненны. Пальпация мягких тканей в области сустава безболезненна, инфильтрации, местной гипертермии нет. Перкуссия в области сустава безболезненна</option>
+        <option value="Ось левой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области левого коленного сустава нет">Ось левой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области левого коленного сустава нет. Активные и пассивные движения в полном объеме, умеренно безболезненны. Пальпация мягких тканей в области сустава безболезненна, инфильтрации, местной гипертермии нет. Перкуссия в области сустава безболезненна</option>
+        <option value="Ось правой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области правого голеностопного сустава нет">Ось правой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области правого голеностопного сустава нет. Активные и пассивные движения в полном объеме, умеренно безболезненны. Пальпация мягких тканей в области сустава безболезненна, инфильтрации, местной гипертермии нет. Перкуссия в области сустава безболезненна</option>
+        <option value="Ось левой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области левого голеностопного сустава нет">Ось левой конечности сохранена, осевая нагрузка возможна, безболезненна. Внешних изменений в области левого голеностопного сустава нет. Активные и пассивные движения в полном объеме, умеренно безболезненны. Пальпация мягких тканей в области сустава безболезненна, инфильтрации, местной гипертермии нет. Перкуссия в области сустава безболезненна</option>
+    </select>
+    <input type="text" id="localStatusInput1" placeholder="дополнительные данные" class="small-input">
+</p>
+
+<p>
+    <select id="localStatus2" class="small-select">
+        <option value="пусто">пусто</option>
+        <option value="гиперемия крайней плоти">гиперемия крайней плоти</option>
+        <option value="определяется эпидермальный пузырь, пальпация болезненна, ногтевая пластинка интактна в области">определяется эпидермальный пузырь, пальпация болезненна, ногтевая пластинка интактна в области</option>
+        <option value="отек, гиперемию кожи, боль при пальпации, гнойное отделяемое">отек, гиперемию кожи, боль при пальпации, гнойное отделяемое</option>
+        <option value="отек, гиперемия кожи, ногтевая пластинка баллотирует, под ногтевой пластиной имеется гнойное содержимое, пальпация болезненна">отек, гиперемия кожи, ногтевая пластинка баллотирует, под ногтевой пластиной имеется гнойное содержимое, пальпация болезненна</option>
+        <option value="определяется рана вокруг которой отек, гиперемия кожи, боль при пальпации">определяется рана вокруг которой отек, гиперемия кожи, боль при пальпации</option>
+        <option value="определяется резаная рана">определяется резаная рана</option>
+        <option value="определяется колотая рана">определяется колотая рана</option>
+        <option value="определяется ушибленная рана">определяется ушибленная рана</option>
+        <option value="определяется размозжённая рана">определяется размозжённая рана</option>
+        <option value="определяется рваная рана">определяется рваная рана</option>
+        <option value="определяется отек, гиперемия кожи, умеренная болезненность правой половины мошонки">определяется отек, гиперемия кожи, умеренная болезненность правой половины мошонки</option>
+        <option value="определяется отек, гиперемия кожи, умеренная болезненность левой половины мошонки">определяется отек, гиперемия кожи, умеренная болезненность левой половины мошонки</option>
+        <option value="определяется рубленная рана">определяется рубленная рана</option>
+        <option value="определяется укушенная рана">определяется укушенная рана</option>
+        <option value="определяется огнестрельная рана">определяется огнестрельная рана</option>
+        <option value="определяется инородное тело">определяется инородное тело</option>
+        <option value="определяется образование">определяется образование</option>
+    </select>
+    <input type="text" id="localStatusInput2" placeholder="дополнительные данные" class="small-input">
+</p>
+<!-- Выполненные процедуры перед кнопками -->
+<p><strong>Выполнено: Осмотр</strong></p>
+<p>
+    <select id="completed1" class="small-select">
+        <option value="пусто">пусто</option>
+        <option value="термометрия">термометрия</option>
+        <option value="ОАК">ОАК</option>
+        <option value="ОАМ">ОАМ</option>
+        <option value="Биохимический анализ крови">Биохимический анализ крови</option>
+        <option value="рентгенография">рентгенография</option>
+        <option value="рентгеноскопия">рентгеноскопия</option>
+        <option value="УЗИ органов брюшной полости">УЗИ органов брюшной полости</option>
+        <option value="УЗИ мягких тканей">УЗИ мягких тканей</option>
+    </select>,
+    <select id="completed2" class="small-select">
+        <option value="пусто">пусто</option>
+        <option value="термометрия">термометрия</option>
+        <option value="ОАК">ОАК</option>
+        <option value="ОАМ">ОАМ</option>
+        <option value="Биохимический анализ крови">Биохимический анализ крови</option>
+        <option value="рентгенография">рентгенография</option>
+        <option value="рентгеноскопия">рентгеноскопия</option>
+        <option value="УЗИ органов брюшной полости">УЗИ органов брюшной полости</option>
+        <option value="УЗИ мягких тканей">УЗИ мягких тканей</option>
+    </select>,
+    <select id="completed3" class="small-select">
+        <option value="пусто">пусто</option>
+        <option value="термометрия">термометрия</option>
+        <option value="ОАК">ОАК</option>
+        <option value="ОАМ">ОАМ</option>
+        <option value="Биохимический анализ крови">Биохимический анализ крови</option>
+        <option value="рентгенография">рентгенография</option>
+        <option value="рентгеноскопия">рентгеноскопия</option>
+        <option value="УЗИ органов брюшной полости">УЗИ органов брюшной полости</option>
+        <option value="УЗИ мягких тканей">УЗИ мягких тканей</option>
+    </select>,
+    <select id="completed4" class="small-select">
+        <option value="пусто">пусто</option>
+        <option value="термометрия">термометрия</option>
+        <option value="ОАК">ОАК</option>
+        <option value="ОАМ">ОАМ</option>
+        <option value="Биохимический анализ крови">Биохимический анализ крови</option>
+        <option value="рентгенография">рентгенография</option>
+        <option value="рентгеноскопия">рентгеноскопия</option>
+        <option value="УЗИ органов брюшной полости">УЗИ органов брюшной полости</option>
+        <option value="УЗИ мягких тканей">УЗИ мягких тканей</option>
+    </select>
+</p>
+<p>
+    <input type="text" id="completedAdditional" class="small-input" placeholder="Дополнительные данные">
+</p>
+
+<!-- Инструментальная диагностика -->
+<p><strong>Инструментальная диагностика:</strong> <br> <span class="green-text"> @#@ИнструментальнаяДиагностика </span> <br></p>
+<select id="operationsStatus" class="small-select">
+    <option value="пусто">пусто</option>
+    <option value="Оперативные вмешательства (операции), включая сведения об анестезиологическом пособии">Оперативные вмешательства (операции), включая сведения об анестезиологическом пособии  @#@ОперацииДвиж </option>
+</select>
+<input type="text" id="operationDetails" class="small-input" placeholder="дополнительные данные">
+<p><strong>Протокол операции:</strong></p>
+<select id="operationProtocol" class="small-select">
+    <option value="пусто">пусто</option>
+    <option value="Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл рана промыта 3% раствором перекиси водорода. Ревизия, гемостаз, швы на рану, асептическая повязка.">Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл рана промыта 3% раствором перекиси водорода. Ревизия, гемостаз, швы на рану, асептическая повязка.</option>
+    <option value="Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл частичная резекция ногтевой пластинки.">Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл частичная резекция ногтевой пластинки.</option>
+    <option value="Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл ногтевая пластинка взята на зажим удалена.">Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл ногтевая пластинка взята на зажим удалена.</option>
+    <option value="Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл удалено инородное тело.">Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл удалено инородное тело.</option>
+    <option value="Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл вскрытие и дренирование фурункула.">Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл вскрытие и дренирование фурункула.</option>
+    <option value="Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл вскрытие эпидермального пузыря.">Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл вскрытие эпидермального пузыря.</option>
+    <option value="Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл вскрытие и дренирование кожного панариция.">Протокол операции: под местной анестезией 0,5% раствора новокаина 5,0мл вскрытие и дренирование кожного панариция.</option>
+</select>
+<input type="text" id="operationProtocolDetails" class="small-input" placeholder="дополнительные данные">
+
+<p><strong>Перевязка:</strong></p>
+<select id="woundTreatment" class="small-select">
+    <option value="пусто">пусто</option>
+    <option value="Туалет раны 3% раствором перекиси водорода. Асептическая повязка">Туалет раны 3% раствором перекиси водорода. Асептическая повязка</option>
+    <option value="Туалет раны 3% раствором перекиси водорода, асептическая повязка с раствором 10% Бетадина">Туалет раны 3% раствором перекиси водорода, асептическая повязка с раствором 10% Бетадина</option>
+    <option value="Туалет раны 3% раствором перекиси водорода, асептическая повязка с раствором 10% Димексида">Туалет раны 3% раствором перекиси водорода, асептическая повязка с раствором 10% Димексида</option>
+</select>
+<input type="text" id="woundTreatmentDetails" class="small-input" placeholder="дополнительные данные">
+<!-- Рекомендации -->
+<p><strong>Рекомендации:</strong></p>
+<input type="text" id="recommendationsInput" size="100" placeholder="Введите рекомендации">
+<!-- Чек-лист для рекомендаций -->
+<form id="recommendationsChecklist">
+    <label><input type="checkbox"> Наблюдение хирурга по месту жительства</label><br>
+    <label><input type="checkbox"> Наблюдение уролога по месту жительства</label><br>
+    <label><input type="checkbox"> Консультация педиатра ПДО ДГКБ9</label><br>
+    <label><input type="checkbox"> Консультация педиатра по месту жительства</label><br>
+    <label><input type="checkbox"> Консультация гастроэнтеролога по месту жительства</label><br>
+    <label><input type="checkbox"> Консультация травматолога ПДО ДГКБ9</label><br>
+    <label><input type="checkbox"> Консультация невролога ПДО ДГКБ9</label><br>
+    <label><input type="checkbox"> Консультация кардиоревматолога</label><br>
+</form>
+
+<!-- Медикаментозное лечение -->
+<p><strong>Медикаментозное лечение:</strong></p>
+<form id="medicationChecklist">
+    <label><input type="checkbox"> Ванночки с раствором фурцилина (развести 2 табл. на 1 стакан) или раствором ромашки 6-8 раз в сутки 5-7 дней.</label><br>
+    <label><input type="checkbox"> Ванночки с раствором отвара ромашки 6-8 раз в сутки 5-7 дней.</label><br>
+    <label><input type="checkbox"> Аппликации крем геля Баланекс-Кидс 2 раза в день 5-7 дней.</label><br>
+    <label><input type="checkbox"> Но-шпа (Дротаверин) <input type="text" placeholder="доза"> таб. *3 раза в день после еды до 3-5 дней</label><br>
+    <label><input type="checkbox"> Мезим форте <input type="text" placeholder="доза"> таб. *3 раза в день после еды до 7 дней</label><br>
+    <label><input type="checkbox"> Креон (10000ЕД) 1 капс. *3 раза в день после еды до 7 дней</label><br>
+    <label><input type="checkbox"> Супрастин <input type="text" placeholder="доза"> таб. *3 раза в день после еды до 3 дней</label><br>
+    <label><input type="checkbox"> Лоратадин <input type="text" placeholder="доза"> таб. *1 раз в день после еды до 3 дней</label><br>
+    <label><input type="checkbox"> Зодак (Зиртек) <input type="text" placeholder="доза"> кап. *1 раз в день после еды до 3 дней</label><br>
+    <label><input type="checkbox"> Нурофен (ибупрофен) 200мг <input type="text" placeholder="доза"> таб. *3 раза в день после еды до 3 дней</label><br>
+    <label><input type="checkbox"> Нурофен (ибупрофен) сироп <input type="text" placeholder="доза"> мл *3 раза в день после еды до 3 дней</label><br>
+    <label><input type="checkbox"> Амоксиклав <input type="text" placeholder="доза"> мг *3 раза в день после еды до 5-7 дней</label><br>
+    <label><input type="checkbox"> Зиннат <input type="text" placeholder="доза"> мг *2 раза в день после еды до 5-7 дней</label><br>
+    <label><input type="checkbox"> Супракс <input type="text" placeholder="доза"> мг *1 раз в день после еды до 5-7 дней</label><br>
+    <label><input type="checkbox"> Аугментин суспензия <input type="text" placeholder="доза"> мг *3 раза в день после еды до 5-7 дней</label><br>
+    <label><input type="checkbox"> Форлакс 1 пак. *2 раза в день после еды до 5-7 дней</label><br>
+    <label><input type="checkbox"> При задержке стула более 72ч Микролакс 5мг *2 раза в день после еды до 5-7 дней</label><br>
+    <label><input type="checkbox"> <strong>При сохранении болевого синдрома, ухудшении состояния – повторный осмотр хирурга.</strong></label><br>
+</form>
+<!-- Добавляем должность, специальность и ФИО пользователя -->
+<p><span class="green-text"> @#@ДолжностьПользователя </span></p>
+<p><span class="green-text"> @#@СпециальностьПользователя </span></p>
+<p><span class="green-text"> @#@ФамилияИмяОтчествоПользователя </span></p>
+
+<!-- Подпись врача -->
+<p>Подпись врача _________________________________________</p>
+
+<!-- Подпись пациента или законного представителя -->
+<p>Справка с рекомендациями выдана на руки (подпись пациента или законного представителя)</p>
+<p>_________________/_____________________________________________________</p>
+<p>(подпись/Ф.И.О. расшифровка)</p>
+
+<!-- Текущая дата и время -->
+<p><span class="green-text"> @#@ТекущаяДата </span> <span class="green-text"> @#@ТекущееВремя </span></p>
+        <!-- Кнопки -->
+        <button id="generateDocBtn">Генерировать справку</button>
+        <button id="copyBtn">Копировать</button>
+
+    </div>
+    <!-- Подключение внешнего скрипта -->
+<script src="main.js"></script>
+<script src="functions.js"></script> <!-- Подключение скрипта с функциями -->
+</body>
+</html>
